@@ -6,6 +6,25 @@
 
     console.log('Listo el DOM');
 
+
+    //--------------------------Mapa----------------------------
+
+
+    var map = L.map('mapa').setView([6.303819, -75.57272], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([6.303819, -75.57272]).addTo(map)
+      .bindPopup('MDE WebCamp<br> Fácil llegada a Pedregal')
+      .openPopup();
+
+
+    //----------------------FIN Mapa----------------------------
+
+
+
     //Campos datos usuario
     let nombre = document.getElementById('nombre');
     let apellido = document.getElementById('apellido');
@@ -34,6 +53,34 @@
     pase_dia.addEventListener('blur', mostrarDias);
     pase_dosdias.addEventListener('blur', mostrarDias);
     pase_completo.addEventListener('blur', mostrarDias);
+
+    //Validación de campos
+    nombre.addEventListener('blur', validarCampos);
+    apellido.addEventListener('blur', validarCampos);
+    email.addEventListener('blur', validarCampos);
+    email.addEventListener('blur', validarMail);
+
+    function validarCampos() {
+      if (this.value == '') {
+        errorDiv.style.display = "block";
+        errorDiv.innerHTML = "Este campo es obligatorio";
+        this.style.border = "1px solid red";
+      } else {
+        errorDiv.style.display = "none";
+        this.style.border = "1px solid #cccccc"
+      }
+    }
+
+    function validarMail() {
+      if (this.value.indexOf('@') > -1) {
+        errorDiv.style.display = "none";
+        this.style.border = "1px solid #cccccc";
+      } else {
+        errorDiv.style.display = "block";
+        errorDiv.innerHTML = "Aquí debe ir un correo electrónico válido";
+        this.style.border = "1px solid red";
+      }
+    }
 
     //Función de calcular el listado  y valor a pagar total
     function calcularMontos(event) {
@@ -72,39 +119,82 @@
         }
         lista_productos.style.display = "block";
         lista_productos.innerHTML = '';
-        for(let i=0; i<listadoProductosArray.length; i++) {
-            lista_productos.innerHTML += `${listadoProductosArray[i]} <br/> `;
+        for (let i = 0; i < listadoProductosArray.length; i++) {
+          lista_productos.innerHTML += `${listadoProductosArray[i]} <br/> `;
         }
 
         suma_total.innerHTML = '';
         suma_total.innerHTML = `$ ${totalPagar.toFixed(2)}`;
-        
+
+      }
+    }
+    //----------------------------------------------------------
+    //----------------Activador de talleres---------------------
+    //----------------------------------------------------------
+    pase_dia.addEventListener('blur', mostrarDias);
+
+    function mostrarDias() {
+      if (pase_dia.value < 1) {
+        document.getElementById('viernes').style.display = "none";
+      } else {
+        document.getElementById('viernes').style.display = "block";
       }
     }
 
-    function mostrarDias(){ 
-        let boletosDia = parseInt(pase_dia.value, 10) || 0,
-            boletos2Dias = parseInt(pase_dosdias.value, 10) || 0,
-            boletoCompleto  = parseInt(pase_completo.value, 10) || 0;
+    pase_dosdias.addEventListener('blur', mostrarDias2);
 
-        let diasElegidos = [];
-
-        if(boletosDia > 0) {
-            diasElegidos.push('viernes');
-            console.log(diasElegidos);
-        }
-        if(boletos2Dias > 0) {
-            diasElegidos.push('viernes', 'sabado');
-            console.log(diasElegidos);
-        }
-        if(boletoCompleto > 0) {
-            diasElegidos.push('viernes', 'sabado', 'domingo');
-            console.log(diasElegidos);
-        }
-        for(let i=0; i<diasElegidos.length; i++){
-            document.getElementById(diasElegidos[i]).style.display = "block";
-        }
+    function mostrarDias2() {
+      if (pase_dosdias.value < 1) {
+        document.getElementById('viernes').style.display = "none";
+        document.getElementById('sabado').style.display = "none";
+      } else {
+        document.getElementById('viernes').style.display = "block";
+        document.getElementById('sabado').style.display = "block";
+      }
     }
+
+    pase_completo.addEventListener('blur', mostrarDias3);
+
+    function mostrarDias3() {
+      if (pase_completo.value < 1) {
+        document.getElementById('viernes').style.display = "none";
+        document.getElementById('sabado').style.display = "none";
+        document.getElementById('domingo').style.display = "none";
+      } else {
+        document.getElementById('viernes').style.display = "block";
+        document.getElementById('sabado').style.display = "block";
+        document.getElementById('domingo').style.display = "block";
+      }
+    }
+    //----------------------------------------------------------
+    //----------------FIN Activador de talleres-----------------
+    //----------------------------------------------------------
+
+    /*
+    function mostrarDias() {
+      let boletosDia = parseInt(pase_dia.value, 10) || 0,
+        boletos2Dias = parseInt(pase_dosdias.value, 10) || 0,
+        boletoCompleto = parseInt(pase_completo.value, 10) || 0;
+
+      let diasElegidos = [];
+
+      if (boletosDia > 0) {
+        diasElegidos.push('viernes');
+        console.log(diasElegidos);
+      }
+      if (boletos2Dias > 0) {
+        diasElegidos.push('viernes', 'sabado');
+        console.log(diasElegidos);
+      }
+      if (boletoCompleto > 0) {
+        diasElegidos.push('viernes', 'sabado', 'domingo');
+        console.log(diasElegidos);
+      }
+      for (let i = 0; i < diasElegidos.length; i++) {
+        document.getElementById(diasElegidos[i]).style.display = "block";
+      }
+    }
+    */
 
   }); //DOM Content loaded
 })();

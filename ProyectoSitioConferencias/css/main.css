@@ -615,6 +615,7 @@ p.numero {
 
 /* Tabla de precios */
 
+
 @media only screen and (min-width: 768px) {
     ul.lista-precio {
         display: flex;
@@ -672,7 +673,6 @@ p.numero {
 
 .mapa {
     height: 420px;
-    background-color: green;
 }
 
 /* Testimoniales */
@@ -878,6 +878,9 @@ form.registro label {
 .campo {
     padding: 2rem;
     font-size: 1.8rem;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 
 @media only screen and (min-width:768px) {
@@ -906,11 +909,23 @@ form.registro label {
     font-size: 2rem;
 }
 
+
+#errorDiv {
+    background-color: #ec4343;
+    border: 1px solid red;
+    border-radius: 2rem;
+    font-size: 2rem;
+    padding: 1rem;
+    display: none;
+    text-align: center;
+    max-height: 8rem;
+}
+
 /* Eventos */
 
 .contenido-dia {
     padding: 2rem;
-    Display: none; 
+    Display: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -967,7 +982,6 @@ form.registro label {
 }
 
 .extras .orden {
-    
     margin-bottom: 1rem;
 }
 
@@ -994,16 +1008,19 @@ form.registro label {
     display: block;
     margin: 0 auto;
 }
+
 #lista_productos {
     background-color: #e1e1e1;
     padding: 2rem;
     font-size: 1.6rem;
     display: none;
 }
+
 #suma_total {
     color: var(--colorNaranja);
     font-size: 2.4rem;
 }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
