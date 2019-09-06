@@ -472,6 +472,22 @@ nav.menu-programa a {
     font-family: var(--fuenteSec);
     margin-bottom: 1rem;
     font-size: 2rem;
+    position: relative;
+}
+
+nav.menu-programa a.activo::after {
+    position: absolute;
+    content: '';
+    background-image: url(../img/talleres-flecha.jpg);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -40px;
+    width: 30px;
+    height: 20px;
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 
 @media only screen and (min-width:768px) {
@@ -485,6 +501,10 @@ nav.menu-programa a i, .detalle-evento p i {
     color: var(--colorNaranja);
     font-size: 2.4rem;
     margin-right: 0.8rem;
+}
+
+div.ocultar {
+    display: none;
 }
 
 /* Programa -> talleres */

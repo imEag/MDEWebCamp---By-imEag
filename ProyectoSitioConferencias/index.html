@@ -2,6 +2,7 @@
 <html class="no-js" lang="">
 
 <head>
+  <!--PLANTILLA: HTML BOILERPLATE-->
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
@@ -101,22 +102,37 @@
         <div class="programa-evento">
           <h2>Programa del evento</h2>
           <nav class="menu-programa">
-            <a href="#"><i class="fas fa-code"></i>Talleres</a>
-            <a href="#"><i class="fas fa-comments"></i>Conferencias</a>
-            <a href="#"><i class="fas fa-university"></i>Seminarios</a>
+            <a href="#talleres"><i class="fas fa-code" aria-hidden="true"></i>Talleres</a>
+            <a href="#conferencias"><i class="fas fa-comments" aria-hidden="true"></i>Conferencias</a>
+            <a href="#seminarios"><i class="fas fa-university" aria-hidden="true"></i>Seminarios</a>
           </nav>
           <div id="talleres" class="info-curso ocultar">
             <div class="detalle-evento">
               <h3>HTML5, CSS3 y JavaScript</h3>
-              <p><i class="fas fa-clock"></i> 16:00 hrs</p>
-              <p><i class="far fa-calendar-alt"></i> 10 Mar</p>
-              <p><i class="fas fa-user"></i> Emmanuel Arizabaleta Garces</p>
+              <p><i class="fas fa-clock" aria-hidden="true"></i> 16:00 hrs</p>
+              <p><i class="far fa-calendar-alt" aria-hidden="true"></i> 10 Mar</p>
+              <p><i class="fas fa-user" aria-hidden="true"></i> Emmanuel Arizabaleta Garces</p>
             </div>
             <div class="detalle-evento">
               <h3>Responsive Web Design</h3>
-              <p><i class="fas fa-clock"></i> 20:00 hrs</p>
-              <p><i class="far fa-calendar-alt"></i> 10 Mar</p>
-              <p><i class="fas fa-user"></i>Emmanuel Arizabaleta Garces </p>
+              <p><i class="fas fa-clock" aria-hidden="true"></i> 20:00 hrs</p>
+              <p><i class="far fa-calendar-alt" aria-hidden="true"></i> 10 Mar</p>
+              <p><i class="fas fa-user" aria-hidden="true"></i>Emmanuel Arizabaleta Garces </p>
+            </div>
+            <a href="#" class="boton">Ver todos</a>
+          </div>
+          <div id="conferencias" class="info-curso ocultar">
+            <div class="detalle-evento">
+              <h3>Diseño UX/UI</h3>
+              <p><i class="fas fa-clock" aria-hidden="true"></i> 18:00 hrs</p>
+              <p><i class="far fa-calendar-alt" aria-hidden="true"></i> 10 Sep</p>
+              <p><i class="fas fa-user" aria-hidden="true"></i> Julian</p>
+            </div>
+            <div class="detalle-evento">
+              <h3>Trabajando como WebDev</h3>
+              <p><i class="fas fa-clock" aria-hidden="true"></i> 19:00 hrs</p>
+              <p><i class="far fa-calendar-alt" v></i> 10 Sep</p>
+              <p><i class="fas fa-user" aria-hidden="true"></i>Sebastian</p>
             </div>
             <a href="#" class="boton">Ver todos</a>
           </div>
@@ -362,6 +378,7 @@
   </script>
 
   <script src="js/plugins.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
 
