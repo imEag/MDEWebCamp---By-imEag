@@ -196,13 +196,16 @@
     }
     */
 
-   
+
 
   }); //DOM Content loaded
 })();
 
-$(function() {
-  
+$(function () {
+
+  //lettering.js
+  $('.nombre-sitio').lettering();
+
   $('.programa-evento .info-curso:first').show();
   $('.menu-programa a:first').addClass('activo');
 
@@ -215,4 +218,19 @@ $(function() {
 
     return false;
   });
+
+  //Animación para los numeros
+  $('ul.cuenta-invitados li:nth-child(1) p').animateNumber({ number: 6 }, 1200);
+  $('ul.cuenta-invitados li:nth-child(2) p').animateNumber({ number: 15 }, 1200);
+  $('ul.cuenta-invitados li:nth-child(3) p').animateNumber({ number: 3 }, 600);
+  $('ul.cuenta-invitados li:nth-child(4) p').animateNumber({ number: 9 }, 2000);
+
+
+  //Cuenta regresiva
+  $('.cuenta-regresiva').countdown('2019/12/31 23:59:59', function (event) {
+    $('#dias').html(event.strftime('%D'));
+    $('#horas').html(event.strftime('%H'));
+    $('#minutos').html(event.strftime('%M'));
+    $('#segundos').html(event.strftime('%S'));
+  })
 });
