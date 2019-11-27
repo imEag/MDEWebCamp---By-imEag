@@ -94,6 +94,7 @@ textarea {
     --titulo: 'PT Sans', sans-serif;
     --fuenteSec: 'Oswald', sans-serif;
     --colorNaranja: #fe4918;
+    --colorGris: #e1e1e1;
 }
 
 html {
@@ -201,35 +202,45 @@ h1.nombre-sitio span {
 }
 
 @media only screen and (min-width: 992px) {
-    .char1{
-        top: 20px; right: 20px;
+    .char1 {
+        top: 20px;
+        right: 20px;
     }
-    .char2{
-        top: 0px; left: -20px;
+    .char2 {
+        top: 0px;
+        left: -20px;
     }
-    .char3{
-        top: 10px; right: 30px;
+    .char3 {
+        top: 10px;
+        right: 30px;
     }
-    .char4{
-        top: 5px; left: 15px;
+    .char4 {
+        top: 5px;
+        left: 15px;
     }
-    .char5{
-        top: 15px; right: 10px;
+    .char5 {
+        top: 15px;
+        right: 10px;
     }
-    .char6{
-        top: 5px; left: -20px;
+    .char6 {
+        top: 5px;
+        left: -20px;
     }
-    .char7{
-        top: 20px; left: 10px;
+    .char7 {
+        top: 20px;
+        left: 10px;
     }
-    .char8{
-        top: 0; left: -10px;
+    .char8 {
+        top: 0;
+        left: -10px;
     }
-    .char9{
-        top: 10px; right: 20px;
+    .char9 {
+        top: 10px;
+        right: 20px;
     }
-    .char10{
-        top: 20px; right: 20px;
+    .char10 {
+        top: 20px;
+        right: 20px;
     }
 }
 
@@ -325,12 +336,19 @@ p.slogan span {
     font-weight: bold;
 }
 
-
 /* Navegacion Principal */
 
 .barra {
     background-color: #353535;
     padding: 2rem 0;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .grid-nav {
@@ -342,6 +360,10 @@ p.slogan span {
 
 .navegacion-principal {
     display: none;
+}
+
+.navegacion-principal a.activo {
+    border-bottom: 4px solid var(--colorNaranja);
 }
 
 .logo img {
@@ -676,7 +698,6 @@ p.numero {
 
 /* Tabla de precios */
 
-
 @media only screen and (min-width: 768px) {
     ul.lista-precio {
         display: flex;
@@ -970,7 +991,6 @@ form.registro label {
     font-size: 2rem;
 }
 
-
 #errorDiv {
     background-color: #ec4343;
     border: 1px solid red;
@@ -1080,6 +1100,83 @@ form.registro label {
 #suma_total {
     color: var(--colorNaranja);
     font-size: 2.4rem;
+}
+
+/* Conferencias */
+
+div.galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.galeria a {
+    margin: .2rem;
+}
+
+/* Calendario */
+
+div.calendario {
+    font-size: 1.2rem;
+}
+@media only screen and (max-width:400px) {
+    div.calendario {
+        font-size: .8rem;
+    }
+}
+
+div.eventos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.dia {
+    width: 50.0%;
+    border: 2px solid var(--colorGris);
+    transition: all 0.3s ease;
+}
+
+@media only screen and (min-width:768px) {
+    div.dia {
+        width: 33.3%;
+      }   
+}
+
+div.dia:hover {
+    transform: scale(1.1);
+    /* W3C */
+    -webkit-transform: scale(1.1);
+    /* Safari & Chrome */
+    -moz-transform: scale(1.1);
+    /* Firefox */
+    -ms-transform: scale(1.1);
+    /* Internet Explorer */
+    -o-transform: scale(1.1);
+    /* Opera */
+    background-color: var(--colorGris);
+}
+
+div.calendario pre {
+    margin: 1.5rem;
+    padding: .5rem;
+    border: 2px solid var(--colorNaranja);
+}
+
+.eventos p.titulo {
+    color: var(--colorNaranja);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.eventos i{
+    color: var(--colorNaranja);
+}
+
+/* Colorbox */
+
+div.cboxElement {
+    padding: 3rem!important;
+    text-align: center;
 }
 
 /* ==========================================================================
